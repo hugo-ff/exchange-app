@@ -62,6 +62,7 @@
 		"lint-staged": "^15.1.0",
 		"postcss": "^8.4.31",
 		"prettier": "^3.1.0",
+		"react-currency-input-field": "^3.6.12",
 		"sass": "^1.60.0",
 		"stylelint": "^14.16.1",
 		"stylelint-config-rational-order": "^0.0.4",

@@ -11,6 +11,10 @@ Welcome to an exciting journey into the world of finance!
 - **Stylish Swag:** Tailwind CSS was used to provide a modern and sleek appearance, ensuring a stylish user interface with a lightweight bundle size.
 - **Reliable Testing:** Tested with Jest and React Testing Library.
 
+## Experience it Live
+
+Explore the application in a live environment: [Exchange App](https://exchange-app-mu.vercel.app/).
+
 ## Quick Setup 💻
 
 1. **Installation:**
@@ -44,6 +48,7 @@ This project is just the beginning. Here are some ideas for future enhancements:
 - **Storybook:** Implement Storybook for a richer user interface.
 - **Complete Test Coverage:** Ensure all use cases are thoroughly tested.
 - **E2E Testing with Cypress:** Add end-to-end tests for comprehensive coverage.
+- **CI-Friendly Tests:** Enhance the project by implementing Continuous Integration (CI) tests to ensure consistent reliability in different development environments.
 
 Contributions and suggestions are welcome! 🎉
 

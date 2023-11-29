@@ -79,8 +79,10 @@ describe("CurrencyCalculator", () => {
 		userEvent.type(amountInput, amountToExchange.toFixed());
 
 		const convertedAmount = limitDecimals(exchangeRate * amountToExchange, 6);
-		const exchangeResultText = `${amountToExchange} ${sourceCurrency.name} = ${convertedAmount} ${targetCurrency.name}`;
+		const currencyAmount = `${amountToExchange} ${sourceCurrency.name} =`;
+		const exchangeResult = `${convertedAmount} ${targetCurrency.name}`;
 
-		expect(await screen.findByText(exchangeResultText)).toBeInTheDocument();
+		expect(await screen.findByText(currencyAmount)).toBeInTheDocument();
+		expect(await screen.findByText(exchangeResult)).toBeInTheDocument();
 	});
 });

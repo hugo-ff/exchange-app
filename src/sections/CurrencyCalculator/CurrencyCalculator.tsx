@@ -11,7 +11,9 @@ import { ExchangeRatesRepository } from "../../modules/currencyCalculator/domain
 import { limitDecimals } from "../../utils/limitDecimals";
 import AmountInput from "./components/AmountInput";
 import CurrencySelector from "./components/CurrencySelector";
+import { InfoMessage } from "./components/InfoMessage";
 import ResultDisplay from "./components/ResultDisplay";
+import { SwapButton } from "./components/SwapButton";
 import { useCurrenciesRepository } from "./hooks/useCurrenciesRepository";
 import { useExchangeRatesRepository } from "./hooks/useExchangeRatesRepository";
 import { handleRateNotFound } from "./utils/handleRateNotFound";
@@ -118,40 +120,53 @@ const CurrencyCalculator: React.FC<CurrencyCalculatorProps> = ({
 	}
 
 	return (
-		<div>
-			<h1>Currency Converter</h1>
+		<div className="relative">
+			<div className="h-[60px] bg-accent px-3 py-5 font-inter text-xl font-semibold leading-5 text-white md:px-[54px] md:text-2xl">
+				<h1>Currency exchange</h1>
+			</div>
 			{exchangeRate && !!currencies.length && (
-				<>
-					<div>
-						<AmountInput
-							amount={amount}
-							sourceCurrency={sourceCurrency}
-							onChange={handleAmountChange}
-						/>
-						<CurrencySelector
-							label="From"
-							currencies={currencies}
-							selectedCurrency={sourceCurrency}
-							onChange={handleSourceCurrencyChange}
-						/>
-						<button aria-label="swap-currencies" onClick={handleSwapCurrencies}>
-							Swap Currencies
-						</button>
-						<CurrencySelector
-							label="To"
-							currencies={currencies}
-							selectedCurrency={targetCurrency}
-							onChange={handleTargetCurrencyChange}
-						/>
+				<div className="relative w-full">
+					<div className="h-72 bg-primary-500 px-12 pt-8 md:pt-16">
+						<p className="text-center font-inter text-2xl font-semibold leading-8 text-white sm:text-3xl lg:text-4xl">
+							{amount} {sourceCurrency.code} to {targetCurrency.code} - Convert{" "}
+							{sourceCurrency.name} to {targetCurrency.name}
+						</p>
 					</div>
-					<ResultDisplay
-						amount={amount}
-						exchangeRate={exchangeRate}
-						convertedAmount={convertedAmount}
-						sourceCurrency={sourceCurrency}
-						targetCurrency={targetCurrency}
-					/>
-				</>
+					<div className="absolute top-32 flex w-full items-center justify-center px-8 pb-10 sm:top-auto sm:h-full lg:px-[77px]">
+						<div className=" w-full rounded-lg bg-white p-6 pb-4 shadow-md sm:px-4 md:px-8 md:pt-8 xl:w-4/5 xl:px-11">
+							<div className="flex flex-col items-start justify-between gap-7 md:gap-5 lg:flex-row lg:items-center lg:gap-4 xl:gap-8 ">
+								<AmountInput
+									amount={amount}
+									sourceCurrency={sourceCurrency}
+									onChange={handleAmountChange}
+								/>
+								<CurrencySelector
+									label="From"
+									currencies={currencies}
+									selectedCurrency={sourceCurrency}
+									onChange={handleSourceCurrencyChange}
+								/>
+								<SwapButton handleClick={handleSwapCurrencies} />
+								<CurrencySelector
+									label="To"
+									currencies={currencies}
+									selectedCurrency={targetCurrency}
+									onChange={handleTargetCurrencyChange}
+								/>
+							</div>
+							<div className="flex flex-col md:flex-row md:justify-between md:gap-5">
+								<ResultDisplay
+									amount={amount}
+									exchangeRate={exchangeRate}
+									convertedAmount={convertedAmount}
+									sourceCurrency={sourceCurrency}
+									targetCurrency={targetCurrency}
+								/>
+								<InfoMessage sourceCurrency={sourceCurrency} targetCurrency={targetCurrency} />
+							</div>
+						</div>
+					</div>
+				</div>
 			)}
 		</div>
 	);

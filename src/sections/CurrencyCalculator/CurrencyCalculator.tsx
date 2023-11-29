@@ -8,6 +8,7 @@ import { CurrenciesRepository } from "../../modules/currencyCalculator/domain/cu
 import { ICurrency } from "../../modules/currencyCalculator/domain/currency/ICurrency";
 import { initialCurrencies } from "../../modules/currencyCalculator/domain/currency/initialCurrencies";
 import { ExchangeRatesRepository } from "../../modules/currencyCalculator/domain/exchangeRates/ExchangeRatesRepository";
+import Spinner from "../../ui/atoms/Spiner";
 import { limitDecimals } from "../../utils/limitDecimals";
 import AmountInput from "./components/AmountInput";
 import CurrencySelector from "./components/CurrencySelector";
@@ -116,7 +117,11 @@ const CurrencyCalculator: React.FC<CurrencyCalculatorProps> = ({
 	};
 
 	if (isLoadingCurrencies || isLoadingRates) {
-		return <div>Loading...</div>;
+		return (
+			<div className="fixed left-0 top-0 flex h-full w-full items-center justify-center">
+				<Spinner />
+			</div>
+		);
 	}
 
 	return (

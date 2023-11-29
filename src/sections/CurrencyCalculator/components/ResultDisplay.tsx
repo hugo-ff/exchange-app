@@ -18,10 +18,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
 }) => (
 	<div>
 		<p>
-			{amount} {sourceCurrency.name} =
-		</p>
-		<p>
-			{convertedAmount.toFixed(7)} {targetCurrency.name}
+			{amount} {sourceCurrency.name} = {convertedAmount} {targetCurrency.name}
 		</p>
 		<p>
 			1 {sourceCurrency.code} = {exchangeRate} {targetCurrency.code}

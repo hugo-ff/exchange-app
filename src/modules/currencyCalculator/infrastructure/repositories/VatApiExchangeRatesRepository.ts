@@ -1,6 +1,6 @@
 import { ICurrency } from "../../domain/currency/ICurrency";
 import { ExchangeRates } from "../../domain/exchangeRates/ExchangeRates";
-import { IExchangeRatesRepository } from "../../domain/exchangeRates/IExchangeRatesRepository";
+import { ExchangeRatesRepository } from "../../domain/exchangeRates/ExchangeRatesRepository";
 import { VatApiExchangeRatesResponse } from "./VatApiExchangeRatesResponse";
 
 function calculateNextBusinessDay16hCET(): number {
@@ -29,7 +29,7 @@ interface StoredData {
 	expirationTime: number;
 }
 
-export class VatApiExchangeRatesRepository implements IExchangeRatesRepository {
+export class VatApiExchangeRatesRepository implements ExchangeRatesRepository {
 	private readonly storageKeyPrefix = "exchange_rates_";
 	private readonly endpoint = "https://api.vatcomply.com/rates";
 	private readonly cache: Storage = localStorage;

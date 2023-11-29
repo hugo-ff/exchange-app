@@ -1,8 +1,9 @@
+import { CurrenciesRepository } from "../../domain/currency/CurrenciesRepository";
 import { ICurrency } from "../../domain/currency/ICurrency";
 import { currenciesAdapter } from "../adapters/currenciesAdapter";
 import { VatApiCurrenciesResponses } from "./VatApiCurrenciesResponses";
 
-export class VatApiCurrenciesRepository {
+export class VatApiCurrenciesRepository implements CurrenciesRepository {
 	private readonly endpoint = "https://api.vatcomply.com/currencies";
 
 	async getAll(): Promise<ICurrency[]> {

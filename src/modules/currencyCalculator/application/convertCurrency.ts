@@ -1,3 +1,4 @@
+import { limitDecimals } from "../../../utils/limitDecimals";
 import { amountValidation } from "../domain/amount/amountValidation";
 import { Amount } from "../domain/amount/type";
 
@@ -6,5 +7,5 @@ export function convertCurrency(amount: Amount, exchangeRate: number): Amount {
 		throw new Error("Amount should not be negative");
 	}
 
-	return amount * exchangeRate;
+	return limitDecimals(amount * exchangeRate, 6);
 }

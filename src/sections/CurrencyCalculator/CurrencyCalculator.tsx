@@ -126,7 +126,7 @@ const CurrencyCalculator: React.FC<CurrencyCalculatorProps> = ({
 
 	return (
 		<div className="relative">
-			<div className="h-[60px] bg-accent px-3 py-5 font-inter text-xl font-semibold leading-5 text-white md:px-[54px] md:text-2xl">
+			<div className="flex h-[60px] items-center bg-accent px-3 font-inter text-xl font-semibold leading-5 text-white md:px-[54px] md:text-2xl">
 				<h1>Currency exchange</h1>
 			</div>
 			{exchangeRate && !!currencies.length && (

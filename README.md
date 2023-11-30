@@ -49,6 +49,7 @@ This project is just the beginning. Here are some ideas for future enhancements:
 - **Complete Test Coverage:** Ensure all use cases are thoroughly tested.
 - **E2E Testing with Cypress:** Add end-to-end tests for comprehensive coverage.
 - **CI-Friendly Tests:** Enhance the project by implementing Continuous Integration (CI) tests to ensure consistent reliability in different development environments.
+- **Toast Notifications:** Enhance user experience by implementing toast notifications to keep users informed of different actions or events within the app.
 
 Contributions and suggestions are welcome! 🎉
 

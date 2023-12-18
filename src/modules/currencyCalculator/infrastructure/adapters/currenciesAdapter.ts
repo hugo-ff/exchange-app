@@ -17,3 +17,9 @@ export function currenciesAdapter(data: VatApiCurrenciesResponses): ICurrency[] 
 
 	return currencies;
 }
+
+// const VatCodeToDomainCodeAdapter: Record<Code, Currency> = {
+// 	EUR: {
+// 		symbol: "€",
+// 	},
+// };

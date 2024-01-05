@@ -1,6 +1,7 @@
 import { CurrenciesRepository } from "../../../application/currencies-repository";
 import type { Currency } from "../../../domain/currency";
 import { currenciesAdapter } from "../../adapters/currencies-adapter";
+import { VITE_CURRENCIES_ENDPOINT } from "./constants";
 
 export interface VatApiCurrenciesResponses {
 	[currencyCode: string]: {
@@ -10,7 +11,7 @@ export interface VatApiCurrenciesResponses {
 }
 
 export class VatApiCurrenciesRepository implements CurrenciesRepository {
-	private readonly endpoint = import.meta.env.VITE_CURRENCIES_ENDPOINT;
+	private readonly endpoint = VITE_CURRENCIES_ENDPOINT;
 
 	async getAll(): Promise<Currency[]> {
 		try {

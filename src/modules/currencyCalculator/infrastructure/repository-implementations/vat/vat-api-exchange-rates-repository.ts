@@ -3,6 +3,7 @@ import { ExchangeRates } from "@/modules/currencyCalculator/domain/exchangeRates
 import { ExchangeRatesRepository } from "../../../application/exchange-rates-repository";
 import { StorageStrategy } from "../../../application/storage-strategy";
 import type { Currency } from "../../../domain/currency";
+import { VITE_RATES_ENDPOINT } from "./constants";
 
 interface StoredData {
 	rates: ExchangeRates;
@@ -17,7 +18,7 @@ interface VatApiExchangeRatesResponse {
 
 export class VatApiExchangeRatesRepository implements ExchangeRatesRepository {
 	private readonly storageKeyPrefix = "exchange_rates_";
-	private readonly endpoint = import.meta.env.VITE_RATES_ENDPOINT;
+	private readonly endpoint = VITE_RATES_ENDPOINT;
 	private readonly storage: StorageStrategy;
 
 	constructor(storage: StorageStrategy) {

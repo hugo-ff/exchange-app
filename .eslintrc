@@ -1,15 +1,21 @@
 {
-	"extends": ["react-app", "react-app/jest", "eslint-config-codely/typescript", "plugin:tailwindcss/recommended"],
+	"extends": [
+		"react-app",
+		"react-app/jest",
+		"eslint-config-codely/typescript",
+		"plugin:tailwindcss/recommended"
+	],
 	"parserOptions": {
 		"project": ["./tsconfig.json"]
 	},
 	"plugins": ["hexagonal-architecture"],
 	"settings": {
 		"import/resolver": {
-			"node": {
-				"extensions": [".js", ".jsx", ".ts", ".tsx"]
-			}
+			"typescript": {}
 		}
+	},
+	"rules": {
+		"prettier/prettier": "off"
 	},
 	"overrides": [
 		{

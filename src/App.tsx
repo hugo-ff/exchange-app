@@ -1,7 +1,7 @@
-import { LocalStorageStrategy } from "./modules/currencyCalculator/infrastructure/repositories/LocalStorageStrategy";
-import { VatApiCurrenciesRepository } from "./modules/currencyCalculator/infrastructure/repositories/VatApiCurrenciesRepository";
-import { VatApiExchangeRatesRepository } from "./modules/currencyCalculator/infrastructure/repositories/VatApiExchangeRatesRepository";
-import CurrencyCalculator from "./sections/CurrencyCalculator/CurrencyCalculator";
+import CurrencyCalculator from "./components/pages/CurrencyCalculator/CurrencyCalculator";
+import { LocalStorageStrategy } from "./modules/currencyCalculator/infrastructure/repository-implementations/localStorage-strategy";
+import { VatApiCurrenciesRepository } from "./modules/currencyCalculator/infrastructure/repository-implementations/vat/vat-api-currencies-repository";
+import { VatApiExchangeRatesRepository } from "./modules/currencyCalculator/infrastructure/repository-implementations/vat/vat-api-exchange-rates-repository";
 
 const currenciesRepository = new VatApiCurrenciesRepository();
 const ratesRepository = new VatApiExchangeRatesRepository(new LocalStorageStrategy());
